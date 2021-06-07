@@ -7,7 +7,7 @@ const Navbar = () => {
       <nav className="green">
         <div className="nav-wrapper">
           <Link to="/" class="brand-logo">
-            Evernote
+            Nevernote
           </Link>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li>
