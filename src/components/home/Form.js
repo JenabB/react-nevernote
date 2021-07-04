@@ -1,5 +1,5 @@
-import React from "react";
-import useInput from "../../customhook/useInput";
+import React from 'react';
+import useInput from '../../customhook/useInput';
 
 const Form = () => {
   const [title, bindTitle, resetTitle] = useInput();
@@ -36,7 +36,7 @@ const Form = () => {
           ></textarea>
           <label htmlFor="note_content">Note Content</label>
         </div>
-        <button className="btn green">Add</button>
+        <button className="btn orange">Add</button>
       </form>
     </div>
   );
