@@ -27,6 +27,7 @@ const Form = () => {
             type="text"
             className="validate"
             {...bindTitle}
+            required
           />
           <label className="active" htmlFor="note_title">
             Note Title
@@ -37,6 +38,7 @@ const Form = () => {
             id="note_content"
             class="materialize-textarea"
             {...bindContent}
+            required
           ></textarea>
           <label htmlFor="note_content">Note Content</label>
         </div>

@@ -1,3 +1,5 @@
+import Swal from 'sweetalert2';
+
 export const addNote = (note) => {
   console.log(note);
   return (dispatch, getState, { getFirestore }) => {
@@ -9,7 +11,12 @@ export const addNote = (note) => {
         favorite: false,
         createdAt: new Date(),
       })
-      .then(() => {
+      .then((data) => {
+        Swal.fire({
+          text: 'Note added',
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        });
         // dispatch({ type: "CREATE_PROJECT_SUCCESS", project });
       })
       .catch((err) => {
