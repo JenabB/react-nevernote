@@ -9,7 +9,7 @@ const Home = () => {
     { collection: 'notes', orderBy: ['createdAt', 'desc'] },
   ]);
   const notes = useSelector((state) => state.firestore.ordered.notes);
-  console.log('home', notes);
+
   return (
     <div className="container ">
       <div className="row center-align">
