@@ -74,7 +74,6 @@ export const toggleFav = (note) => {
 export const updateNote = (note) => {
   return (dispatch, getState, { getFirestore }) => {
     // make async call to database
-    console.log('note in updatenote action', note);
     const firestore = getFirestore();
     firestore
       .collection('notes')

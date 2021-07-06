@@ -14,6 +14,10 @@ const Note = ({ note }) => {
 
   const heartMarkup = note.favorite ? 'favorite' : 'favorite_border';
 
+  const editNoteHandler = () => {
+    dispatch({ type: 'EDIT_NOTE', payload: note });
+  };
+
   const deleteNoteHandler = () => {
     Swal.fire({
       title: 'Are you sure?',
@@ -54,7 +58,11 @@ const Note = ({ note }) => {
         <p className="truncate">{note.content}</p>
         <p className="grey-text">{moment(note.createdAt.toDate()).fromNow()}</p>
         <div className="right-align">
-          <i className="material-icons black-text">edit</i>
+          <Link to={`edit/${note.id}`}>
+            <i className="material-icons black-text" onClick={editNoteHandler}>
+              edit
+            </i>
+          </Link>
         </div>
       </Link>
     </div>
