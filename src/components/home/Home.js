@@ -1,8 +1,7 @@
-import React from 'react';
-import Form from './Form';
 import NoteList from '../notes/NoteList';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
+import FloatingAdd from '../notes/FloatingAdd';
 
 const Home = () => {
   useFirestoreConnect([
@@ -11,14 +10,10 @@ const Home = () => {
   const notes = useSelector((state) => state.firestore.ordered.notes);
 
   return (
-    <div className="container ">
+    <div className="container home">
       <div className="row center-align">
-        <div className="col s7">
-          <Form />
-        </div>
-        <div className="col s5">
-          <NoteList notes={notes} />
-        </div>
+        <FloatingAdd />
+        <NoteList notes={notes} />
       </div>
     </div>
   );
