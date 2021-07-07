@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useFirestoreConnect } from 'react-redux-firebase';
 import NoteList from '../notes/NoteList';
+import {Link} from 'react-router-dom';
 
 const Favorites = () => {
   useFirestoreConnect([
@@ -13,7 +14,6 @@ const Favorites = () => {
     },
   ]);
   const favnotes = useSelector((state) => state.firestore.data['favnotes']);
-  console.log(favnotes);
   // const notesListMarkup = favnotes ? <NotesList notes={favnotes} /> : null
   // const favarray = favnotes ? Object.key(favnotes) : []
   const fav_array = [];
@@ -23,7 +23,13 @@ const Favorites = () => {
 
   return (
     <div>
-      <NoteList notes={fav_array} />
+      {favnotes ? <NoteList notes={fav_array} /> :(
+        <div className="center white container empty-fav">
+          <h5 className="black-text">No favorite</h5>
+          <Link to="/"><button className="btn orange">
+          Home</button></Link>
+        </div>
+      )}
     </div>
   );
 };
